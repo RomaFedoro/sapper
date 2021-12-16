@@ -36,8 +36,7 @@ function generateField() {
         return;
       }
       outputCell.oncontextmenu = function () {
-        blockCell(idCell);
-        outputLeftDemine.textContent = leftDemine;
+        if(blockCell(idCell)) outputLeftDemine.textContent = leftDemine;
         return false;
       }
       outputRow.appendChild(outputCell);
@@ -69,6 +68,7 @@ function giveIdCell(x, y) {
 
 function definingRoles(openCell) {
   if(widthField * heightField < numMines + 9) return false;
+  let indexMines = [];
   while(indexMines.length < numMines) {
     let row = randomIndex(heightField);
     let column = randomIndex(widthField);
@@ -100,15 +100,15 @@ function openCell(id) {
   let column = id % widthField;
   let row = (id - column) / widthField;
 
-  if(!processGame) {
-    processGame = true;
-    definingRoles([row, column]);
-  }
-
   let cell = giveInfoCell(id);
   if(cell.isOpened) return false;
   if(cell.isBlocked) return false;
   if(cell.role === -1) return gameOver(id);
+
+  if(!processGame) {
+    processGame = true;
+    definingRoles([row, column]);
+  }
 
   cell.isOpened = true;
   left -= 1;
