@@ -1,0 +1,137 @@
+html {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    height: 100%;
+    display: flex;
+    font-family: "Gilroy";
+    background-color: #8C8C8C;
+}
+
+.wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: auto;
+    min-height: 100%;
+    padding: 48px;
+    box-sizing: border-box;
+    /* background-color: #8C8C8C; */
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+}
+
+.row {
+    display: flex;
+}
+
+.cell {
+    width: 32px;
+    height: 32px;
+    background-color: #edc13d;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+    font-size: 14px;
+    font-weight: 900;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.row:nth-child(odd) .cell:nth-child(odd),
+.row:nth-child(even) .cell:nth-child(even) {
+    background-color: #F2D43D;
+}
+
+.cell-opened {
+    background-color: #eadcca;
+    cursor: default;
+}
+
+.row:nth-child(odd) .cell-opened:nth-child(odd),
+.row:nth-child(even) .cell-opened:nth-child(even) {
+    background-color: #f8e9d6;
+}
+
+.cell-mine, .misjudgment {
+    background-image: url('icons/field/mine.svg');
+    background-color: #ff9595 !important;
+}
+
+.cell-mine-clicked {
+    background-image: url('icons/field/mine.svg');
+    background-color: #f75353 !important;
+}
+
+.cell-blocked {
+    background-image: url('icons/field/checkbox.svg');
+    cursor: default;
+}
+
+.cheat {
+    background-color: #afd8bf !important;
+}
+
+.finish-cell {
+    cursor: default;
+}
+
+.field_block {
+    display: flex;
+}
+
+.data_cont {
+    display: flex;
+    margin-bottom: 16px;
+    width: max-content;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.data_block {
+    display: flex;
+    align-items: center;
+    padding-right: 28px;
+}
+
+.data_block:last-child {
+    padding-right: 0;
+}
+
+.data_icon {
+    width: 20px;
+    height: 20px;
+    /* background-color: brown; */
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.data_text {
+    padding-left: 6px;
+    font-size: 14px;
+    color: #e7e7e7;
+    font-weight: 500;
+}
+
+#left_demine .data_icon {
+    background-image: url('icons/data/flag.svg');
+}
+
+#left_cells .data_icon {
+    background-image: url('icons/data/cell.svg');
+}
+
+#time .data_icon {
+    background-image: url('icons/data/time.svg');
+}
